@@ -34,7 +34,7 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
           <div className="relative z-10 max-w-xl text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-0.035em] text-[#2B3838] leading-[1.15] mb-4">
               Guiding Your Business <br />
-              Towards <span className="font-medium animate-minimal-gradient inline-block">Growth</span>
+              Towards <span className="font-bold animate-minimal-gradient inline-block">Growth</span>
             </h1>
 
             <p className="text-[#64748B] text-base sm:text-lg font-normal tracking-[-0.01em] mb-8">

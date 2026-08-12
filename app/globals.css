@@ -3,10 +3,11 @@
 /* Inter is the single type family (Söhne-like geometric sans). Redefining
    --font-sans makes both the `font-sans` utility and Tailwind's preflight
    default resolve to Inter, so the whole document inherits it. */
-/* @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+@theme {
+  --font-neutral: var(--font-neutral), sans-serif;
+  --font-sans: var(--font-neutral), var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-} */
+}
 
 @layer base {
   :root {
@@ -129,7 +130,8 @@ h4,
 .animate-minimal-gradient {
   background: linear-gradient(90deg, #028F1A, #78BE44, #10B981, #028F1A);
   background-size: 250% auto;
-
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 6s ease infinite;
 }
