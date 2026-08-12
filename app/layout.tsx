@@ -1,40 +1,13 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans, Lexend } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const neutralFace = localFont({
-  src: [
-    {
-      path: "./fonts/NeutralFace.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/NeutralFace-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-neutral-face",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
+// Inter — a clean geometric sans used as a free stand-in for Söhne.
+// Variable font, so no explicit weight array is needed.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const lexend = Lexend({
-  variable: "--font-lexend",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -46,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${neutralFace.variable} ${syne.variable} ${jakarta.variable} ${lexend.variable} scroll-smooth antialiased`}
+      className={`${inter.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FFFFFF] text-[#141414] selection:bg-[#028F1A] selection:text-white font-sans">
         {children}
