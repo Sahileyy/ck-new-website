@@ -12,17 +12,18 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#FAFAFA]/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs px-[8%] py-4">
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex items-center justify-between relative">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex flex-col leading-none">
-            <span className="text-2xl font-black tracking-tighter text-gray-900">CK</span>
-            <span className="text-[10px] font-extrabold tracking-widest text-[#78BE44] uppercase">CREATIVES</span>
-          </div>
+        <Link href="/" className="flex items-center gap-2 z-10 shrink-0">
+          <img
+            src="/images/ck.logo.png?v=1"
+            alt="CK Creatives Logo"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Center Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <nav className="hidden lg:flex items-center justify-center gap-12 text-base lg:text-lg font-light tracking-wide text-gray-700 flex-1 mx-auto">
           <a href="#work" className="hover:text-gray-900 transition-colors">Work</a>
           <a href="#services" className="hover:text-gray-900 transition-colors">Services</a>
           <a href="#about" className="hover:text-gray-900 transition-colors">About Us</a>
@@ -31,29 +32,18 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
           <a href="#contact" className="hover:text-gray-900 transition-colors">Contact</a>
         </nav>
 
-        {/* Right Action Buttons */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenTalkModal}
-            className="px-5 py-2 border border-gray-300 rounded-full text-xs font-bold text-gray-800 hover:bg-gray-50 transition-colors"
-          >
-            LOGIN
-          </button>
-          
-          <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 text-xs">
-            ☀️
-          </button>
+        {/* Right Side Spacer for Perfect Desktop Balance */}
+        <div className="hidden lg:block w-24 shrink-0" />
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-gray-700 p-1"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden text-gray-700 p-1"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
 
       {/* Mobile Drawer */}
