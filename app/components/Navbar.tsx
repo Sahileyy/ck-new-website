@@ -16,13 +16,13 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="flex flex-col leading-none">
-            <span className="text-2xl font-black tracking-tighter text-gray-900">CK</span>
-            <span className="text-[10px] font-extrabold tracking-widest text-[#78BE44] uppercase">CREATIVES</span>
+            <span className="text-2xl font-medium tracking-tight text-gray-900">CK</span>
+            <span className="text-[10px] font-medium tracking-[0.15em] text-[#78BE44] uppercase">CREATIVES</span>
           </div>
         </Link>
 
         {/* Center Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-[-0.01em] text-gray-600">
           <a href="#work" className="hover:text-gray-900 transition-colors">Work</a>
           <a href="#services" className="hover:text-gray-900 transition-colors">Services</a>
           <a href="#about" className="hover:text-gray-900 transition-colors">About Us</a>
@@ -35,7 +35,7 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenTalkModal}
-            className="px-5 py-2 border border-gray-300 rounded-full text-xs font-bold text-gray-800 hover:bg-gray-50 transition-colors"
+            className="px-5 py-2 border border-gray-300 rounded-full text-xs font-medium tracking-normal text-gray-800 hover:bg-gray-50 transition-colors"
           >
             LOGIN
           </button>
@@ -59,12 +59,12 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#FAFAFA] border-b border-gray-200 px-6 py-4 mt-2 space-y-3 text-sm">
-          <a href="#work" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">Work</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">Services</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">About Us</a>
-          <a href="#insights" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">Insights</a>
-          <a href="#careers" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">Careers</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium">Contact</a>
+          <a href="#work" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Work</a>
+          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Services</a>
+          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">About Us</a>
+          <a href="#insights" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Insights</a>
+          <a href="#careers" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Careers</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Contact</a>
         </div>
       )}
     </header>
