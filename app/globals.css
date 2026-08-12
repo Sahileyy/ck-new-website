@@ -39,6 +39,12 @@ h1, h2, h3, h4, .font-heading {
   font-family: var(--font-lexend), var(--font-syne), var(--font-jakarta), sans-serif;
 }
 
+/* Exclude Hero section from primary font (retains Lexend/Syne) */
+.hero-section,
+.hero-section * {
+  font-family: var(--font-lexend), var(--font-syne), var(--font-jakarta), sans-serif;
+}
+
 
 
 /* Clean noise or blank background */

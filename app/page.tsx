@@ -4,6 +4,8 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Testimonial from "./components/Testimonial";
+import CaseStudies from "./components/CaseStudies";
+import BlogSection from "./components/BlogSection";
 import FloatingParticles from "./components/FloatingParticles";
 
 export default function Home() {
@@ -17,11 +19,16 @@ export default function Home() {
       {/* Persistent Navbar */}
       <Navbar onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
-      {/* Deutsche Deutsche.dk Exact Replica Home Page Sections with hero.meta.webm Background Video */}
+      {/* Hero Section */}
       <Hero onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
       {/* "What We Do" — interactive services showcase */}
+      {/* Case Studies Section */}
+      <CaseStudies />
+
       <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+      {/* Blog Cards Section */}
+      <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
       {/* Simple Modal Contact Drawer */}
       {isTalkModalOpen && (

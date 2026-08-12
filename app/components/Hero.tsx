@@ -7,31 +7,13 @@ interface HeroProps {
 }
 
 export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
-  const services = [
-    {
-      title: "Legal Advisory",
-      desc: "Customized legal solutions with comprehensive packages",
-    },
-    {
-      title: "Financial Solutions",
-      desc: "Customized financial solutions with comprehensive packages",
-    },
-    {
-      title: "Digital Transformation",
-      desc: "Driving growth through smart digital solutions.",
-    },
-    {
-      title: "Creative Production",
-      desc: "Shaping brands through powerful creative storytelling",
-    },
-  ];
 
   return (
-    <div className="w-full bg-white px-[8%] pb-12 pt-2">
+    <div className="hero-section w-full bg-white px-[8%] pb-12 pt-2">
       <div className="w-full">
         {/* --- MAIN HERO CARD CONTAINER --- */}
         <div className="relative w-full rounded-[32px] bg-[#E4F6F3] p-8 sm:p-14 lg:p-20 overflow-hidden min-h-[500px] lg:min-h-[580px] flex flex-col justify-center">
-          
+
           {/* Background Video / 3D Graphics container on right */}
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 z-0 overflow-hidden pointer-events-none opacity-80 lg:opacity-100 flex items-center justify-end">
             <video
@@ -64,7 +46,7 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
                 <span>Get Started</span>
                 <span className="text-base">→</span>
               </button>
-              
+
               <button
                 onClick={onOpenTalkModal}
                 className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm tracking-[-0.01em] rounded-md transition-all cursor-pointer"
@@ -83,31 +65,6 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
             <br /><br />
             Our comprehensive range of business consulting services covers <strong className="font-medium text-gray-900">Legal, Finance, Digital Solution</strong> and <strong className="font-medium text-gray-900">Creative Production</strong>.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((srv, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl border border-gray-100 bg-[#FAFAFA] hover:border-[#028F1A] hover:shadow-lg transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium tracking-[-0.025em] text-gray-900 mb-2.5 group-hover:text-[#028F1A] transition-colors">
-                    {srv.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-[1.65] tracking-[-0.01em] mb-6">
-                    {srv.desc}
-                  </p>
-                </div>
-                <button
-                  onClick={onOpenTalkModal}
-                  className="text-sm font-medium tracking-[-0.01em] text-[#028F1A] flex items-center gap-2 group-hover:gap-3 transition-all"
-                >
-                  <span>Learn More</span>
-                  <span>→</span>
-                </button>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>
