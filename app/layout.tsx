@@ -1,6 +1,23 @@
 import type { Metadata } from "next";
 import { Syne, Plus_Jakarta_Sans, Lexend } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const neutralFace = localFont({
+  src: [
+    {
+      path: "./fonts/NeutralFace.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/NeutralFace-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-neutral-face",
+});
 
 const syne = Syne({
   variable: "--font-syne",
@@ -29,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jakarta.variable} ${lexend.variable} scroll-smooth antialiased`}
+      className={`${neutralFace.variable} ${syne.variable} ${jakarta.variable} ${lexend.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FFFFFF] text-[#141414] selection:bg-[#028F1A] selection:text-white font-sans">
         {children}

@@ -15,12 +15,18 @@
 body {
   background-color: #FAFAFA;
   color: #0F172A;
-  font-family: var(--font-lexend), var(--font-jakarta), sans-serif;
+  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-jakarta), sans-serif;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, .font-heading {
-  font-family: var(--font-lexend), var(--font-syne), sans-serif;
+  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-syne), sans-serif;
+}
+
+/* Exclude Hero section from primary font (retains Lexend/Syne) */
+.hero-section,
+.hero-section * {
+  font-family: var(--font-lexend), var(--font-syne), var(--font-jakarta), sans-serif;
 }
 
 /* Clean noise or blank background */

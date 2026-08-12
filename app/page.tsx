@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import CaseStudies from "./components/CaseStudies";
 import BlogSection from "./components/BlogSection";
 import FloatingParticles from "./components/FloatingParticles";
 
@@ -19,6 +20,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+
+      {/* Case Studies Section */}
+      <CaseStudies />
 
       {/* Blog Cards Section */}
       <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />

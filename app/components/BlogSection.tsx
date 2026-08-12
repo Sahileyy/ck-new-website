@@ -1,5 +1,7 @@
 "use client";
 
+import ExploreButton from "./ExploreButton";
+
 interface BlogSectionProps {
   onOpenTalkModal?: () => void;
 }
@@ -39,11 +41,15 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
 
   return (
     <section className="w-full bg-white px-[8%] py-16">
+      <h2 className="font-neutral font-small text-2xl sm:text-4xl text-[#2B3838] mb-10">
+        Insights
+      </h2>
+
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         {blogs.map((item) => (
           <div
             key={item.id}
-            style={{ backgroundColor: item.isFeaturedCard ? "#3cff4cd0" : "transparent" }}
+            style={{ backgroundColor: item.isFeaturedCard ? "#edffefff" : "transparent" }}
             className="flex flex-col justify-between overflow-hidden transition-all duration-300 rounded-none p-0"
           >
             <div>
@@ -95,6 +101,11 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
             )}
           </div>
         ))}
+      </div>
+
+      {/* Explore CTA Button at bottom of blog section */}
+      <div className="mt-9 flex justify-end w-full">
+        <ExploreButton />
       </div>
     </section>
   );
