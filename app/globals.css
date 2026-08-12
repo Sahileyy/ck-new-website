@@ -20,30 +20,26 @@
   }
 }
 
-html,
 body {
   background-color: #FAFAFA;
   color: #0F172A;
-  font-family: var(--font-sans);
-  font-weight: 400;
-  letter-spacing: -0.011em;
-  line-height: 1.6;
+  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-jakarta), sans-serif;
   overflow-x: hidden;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-syne), sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.18;
+/* Exclude Hero section from primary font (retains Lexend/Syne) */
+.hero-section,
+.hero-section * {
+  font-family: var(--font-lexend), var(--font-syne), var(--font-jakarta), sans-serif;
 }
+
+
 
 /* Clean noise or blank background */
 .editorial-grid-bg {
