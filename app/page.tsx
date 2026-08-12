@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CaseStudies from "./components/CaseStudies";
+import TrustedLogos from "./components/TrustedLogos";
 import BlogSection from "./components/BlogSection";
 import FloatingParticles from "./components/FloatingParticles";
 
@@ -20,6 +21,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+
+      {/* Trusted Client Logos Section */}
+      <TrustedLogos />
 
       {/* Case Studies Section */}
       <CaseStudies />

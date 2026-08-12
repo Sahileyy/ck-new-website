@@ -19,7 +19,11 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .font-heading {
+h1,
+h2,
+h3,
+h4,
+.font-heading {
   font-family: var(--font-neutral-face), var(--font-lexend), var(--font-syne), sans-serif;
 }
 
@@ -53,6 +57,7 @@ h1, h2, h3, h4, .font-heading {
     transform: translateX(40px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -65,6 +70,7 @@ h1, h2, h3, h4, .font-heading {
     transform: translateX(-40px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -84,9 +90,11 @@ h1, h2, h3, h4, .font-heading {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -100,3 +108,30 @@ h1, h2, h3, h4, .font-heading {
   animation: gradientShift 6s ease infinite;
 }
 
+@keyframes marqueeUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-up {
+  animation: marqueeUp linear infinite;
+}
+
+@keyframes marqueeDown {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee-down {
+  animation: marqueeDown linear infinite;
+}

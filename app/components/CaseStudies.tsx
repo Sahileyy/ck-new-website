@@ -81,24 +81,24 @@ export default function CaseStudies() {
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     return (
-        <section ref={sectionRef} className="w-full bg-white text-black py-16 md:py-24">
-            <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
+        <section ref={sectionRef} className="w-full bg-white text-black py-16 md:py-24 px-[8%]">
+            <div className="w-full">
                 <div className="flex gap-10 lg:gap-12 items-start">
                     {/* LEFT — Sticky Intro Column (4 columns) */}
                     <div className="lg:col-span-4 w-full lg:sticky lg:top-28">
                         {/* <span className="text-[12px] font-normal text-[#8d8d8d] tracking-[0.12px] uppercase mb-3 block">
               Selected work
             </span> */}
-                        <h2 className="text-5xl sm:text-5xl font-light text-black tracking-[-0.025em] leading-[1.08] mb-5">
+                        <h2 className="text-left text-3xl sm:text-4xl font-light text-black tracking-[-0.025em] leading-[1.08] mb-5">
                             Our case study
                         </h2>
-                        <p className="text-[15px] text-[#666666] leading-[1.6] max-w-[38ch] mb-8">
+                        <p className="text-xs sm:text-sm text-[#666666] leading-[1.6] max-w-[38ch] mb-8">
                             A quick look at how we approached each project, the decisions we made
                             along the way, and the results that came out of it.
                         </p>
                         <Link
                             href="/case-study"
-                            className="group inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
+                            className="group inline-flex items-center gap-2 text-xs font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
                         >
                             <span>View all case studies</span>
                             <span className="transform transition-transform duration-300 group-hover:translate-x-1">
@@ -130,25 +130,25 @@ export default function CaseStudies() {
                                 {/* Name & description */}
                                 <div className="p-5 flex flex-col flex-1">
                                     <div className="flex items-center gap-3 mb-3">
-                                        <span className="text-[12px] font-mono text-[#8d8d8d] uppercase">
+                                        <span className="text-[10px] font-mono text-[#8d8d8d] uppercase">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
-                                        <span className="text-[11px] font-medium text-[#b75928] uppercase tracking-wide">
+                                        <span className="text-[10px] font-medium text-[#b75928] uppercase tracking-wide">
                                             {study.category}
                                         </span>
                                     </div>
 
-                                    <h3 className="text-xl font-light text-black tracking-[-0.02em] leading-[1.2] mb-3">
+                                    <h3 className="text-lg font-light text-black tracking-[-0.02em] leading-[1.2] mb-3">
                                         {study.title}
                                     </h3>
 
-                                    <p className="text-[14px] text-[#666666] leading-[1.55] mb-5 flex-1">
+                                    <p className="text-xs text-[#666666] leading-[1.55] mb-5 flex-1">
                                         {study.description}
                                     </p>
 
                                     <Link
                                         href={study.link}
-                                        className="group inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
+                                        className="group inline-flex items-center gap-2 text-xs font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
                                     >
                                         <span>View Case Study</span>
                                         <span className="transform transition-transform duration-300 group-hover:translate-x-1">

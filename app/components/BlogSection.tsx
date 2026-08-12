@@ -42,7 +42,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
   return (
     <section className="w-full bg-white px-[8%] py-16">
       <h2 className="font-neutral font-small text-2xl sm:text-4xl text-[#2B3838] mb-10">
-        Insights
+        Blog
       </h2>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
