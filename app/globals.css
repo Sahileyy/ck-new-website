@@ -26,7 +26,15 @@ body {
   font-family: var(--font-neutral-face), var(--font-lexend), var(--font-jakarta), sans-serif;
   overflow-x: hidden;
   -ms-overflow-style: none;
+}
+
+body:has(.home-page) {
+  -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+body:has(.home-page)::-webkit-scrollbar {
+  display: none;
 }
 
 h1, h2, h3, h4, .font-heading {
@@ -230,4 +238,3 @@ h1, h2, h3, h4, .font-heading {
     animation: none;
   }
 }
-

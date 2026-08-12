@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 interface NavbarProps {
@@ -9,9 +9,31 @@ interface NavbarProps {
 
 export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY.current;
+
+      // Ignore tiny scroll movements so the navigation does not flicker.
+      if (Math.abs(scrollDifference) < 8) return;
+
+      setIsVisible(currentScrollY < 80 || scrollDifference < 0);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FAFAFA]/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs px-[8%] py-4">
+    <header
+      className={`sticky top-0 z-50 w-full bg-[#FAFAFA]/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs px-[8%] py-4 transition-transform duration-300 ease-out ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
       <div className="w-full flex items-center justify-between relative">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 z-10 shrink-0">

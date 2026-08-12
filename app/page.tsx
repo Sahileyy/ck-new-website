@@ -7,12 +7,13 @@ import Testimonial from "./components/Testimonial";
 import CaseStudies from "./components/CaseStudies";
 import BlogSection from "./components/BlogSection";
 import FloatingParticles from "./components/FloatingParticles";
+import ServicesShowcase from "./components/ServicesShowcase";
 
 export default function Home() {
   const [isTalkModalOpen, setIsTalkModalOpen] = useState(false);
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#FAFAFA] font-sans text-gray-900 relative">
+    <main className="home-page min-h-screen flex flex-col bg-[#FAFAFA] font-sans text-gray-900 relative">
       {/* Canvas Floating Green Particles */}
       <FloatingParticles />
 
@@ -27,6 +28,7 @@ export default function Home() {
       <CaseStudies />
 
       <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+      <ServicesShowcase />
       {/* Blog Cards Section */}
       <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 

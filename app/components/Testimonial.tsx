@@ -172,7 +172,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
         <div className="flex items-end justify-between gap-4 mb-6 lg:mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-medium text-[#0F172A] tracking-tighter">
-              What our clients say
+              What's our clients say
             </h2>
             <p className="text-slate-500 text-2xl sm:text-3xl lg:text-[32px] font-normal tracking-tighter">
               Real experiences from the brands
@@ -180,20 +180,8 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
           </div>
 
           <div className="flex items-center justify-end gap-1.5 sm:gap-2 shrink-0">
-            <button
-              onClick={prev}
-              aria-label="Previous service"
-              className="w-10 h-10 rounded-sm bg-[#EDE9FE] text-[#6366F1] hover:bg-[#DDD6FE] flex items-center justify-center text-sm font-medium transition-colors cursor-pointer"
-            >
-               <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={next}
-              aria-label="Next service"
-              className="w-10 h-10 rounded-sm bg-[#EDE9FE] text-[#6366F1] hover:bg-[#DDD6FE] flex items-center justify-center text-sm font-medium transition-colors cursor-pointer"
-            >
-               <ArrowRight  className="w-5 h-5" />
-            </button>
+           <button onClick={prev} aria-label="Previous services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#6366F1] hover:text-[#6366F1] "><ArrowLeft className="w-5 h-5" /></button>
+            <button onClick={next} aria-label="Next services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#6366F1]  hover:text-[#6366F1]  "><ArrowRight className="w-5 h-5" /></button>
           </div>
         </div>
 
