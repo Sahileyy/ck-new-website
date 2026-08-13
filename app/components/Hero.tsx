@@ -7,6 +7,8 @@ interface HeroProps {
 }
 
 export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div className="hero-section w-full bg-white px-[8%] pb-12 pt-2">
       <div className="w-full">
@@ -37,12 +39,21 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
               Towards <span className="font-bold animate-minimal-gradient inline-block">Growth</span>
             </h1>
 
-            <p className="text-[#64748B] text-base sm:text-lg font-normal tracking-[-0.01em] mb-8">
-              Protecting Corporates
-            </p>
+            {/* Expandable Powerful Description */}
+            <div className="text-[#64748B] text-base sm:text-lg font-normal tracking-[-0.01em] mb-8 leading-relaxed">
+              <p>
+                We help ambitious businesses grow with marketing, branding &amp; digital solutions.
+              </p>
+              {isExpanded && (
+                <p className="mt-3 text-[#64748B] font-normal leading-relaxed transition-all duration-300">
+                  From brand architecture and cinematic storytelling to high-converting digital ecosystems, we turn strategic vision into unstoppable market momentum.
+                </p>
+              )}
+            </div>
 
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
               <button
+                type="button"
                 onClick={onOpenTalkModal}
                 className="px-6 py-3 bg-[#028F1A] hover:bg-[#017315] text-white font-medium text-sm tracking-[-0.01em] rounded-md shadow-xs transition-all flex items-center gap-2 cursor-pointer"
               >
@@ -51,10 +62,12 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
               </button>
 
               <button
-                onClick={onOpenTalkModal}
-                className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm tracking-[-0.01em] rounded-md transition-all cursor-pointer"
+                type="button"
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm tracking-[-0.01em] rounded-md transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                Learn More
+                <span>{isExpanded ? "Show Less" : "Learn More"}</span>
+                <span className="text-xs">{isExpanded ? "↑" : "↓"}</span>
               </button>
             </div>
           </div>
