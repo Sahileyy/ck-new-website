@@ -32,19 +32,19 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
 
           {/* Left Text Content Box */}
           <div className="relative z-10 max-w-xl text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-1px] text-[#2B3838] leading-[1.3] mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-0.035em] text-[#2B3838] leading-[1.15] mb-4">
               Guiding Your Business <br />
               Towards <span className="font-bold animate-minimal-gradient inline-block">Growth</span>
             </h1>
 
-            <p className="text-[#647474] text-base sm:text-lg font-normal mb-8 tracking-wide">
+            <p className="text-[#64748B] text-base sm:text-lg font-normal tracking-[-0.01em] mb-8">
               Protecting Corporates
             </p>
 
             <div className="flex items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenTalkModal}
-                className="px-6 py-3 bg-[#028F1A] hover:bg-[#017315] text-white font-medium text-sm rounded-md shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 bg-[#028F1A] hover:bg-[#017315] text-white font-medium text-sm tracking-[-0.01em] rounded-md shadow-xs transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Get Started</span>
                 <span className="text-base">→</span>
@@ -52,7 +52,7 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
 
               <button
                 onClick={onOpenTalkModal}
-                className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm rounded-md transition-all cursor-pointer"
+                className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm tracking-[-0.01em] rounded-md transition-all cursor-pointer"
               >
                 Learn More
               </button>

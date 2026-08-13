@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans, Lexend } from "next/font/google";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const neutralFace = localFont({
   src: [
@@ -16,25 +22,8 @@ const neutralFace = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-neutral-face",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const lexend = Lexend({
-  variable: "--font-lexend",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-neutral",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -46,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${neutralFace.variable} ${syne.variable} ${jakarta.variable} ${lexend.variable} scroll-smooth antialiased`}
+      className={`${inter.variable} ${neutralFace.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FFFFFF] text-[#141414] selection:bg-[#028F1A] selection:text-white font-sans">
         {children}
