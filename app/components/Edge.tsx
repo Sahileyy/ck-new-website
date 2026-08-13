@@ -20,7 +20,7 @@ export default function Edge() {
         <div className="flex gap-6 pb-12  lg:items-end lg:pb-16 w-3/4">
           <div>
             {/* <p className="text-xl font-medium uppercase tracking-[0.18em] text-[#e77800]">Our Works</p> */}
-            <h2 className="heading-normal-case  tracking-tighter font-bold opacity-80 text-4xl     sm:text-4xl lg:text-4xl xl:text-6xl">
+            <h2 className="heading-normal-case  tracking-tighter  opacity-80 text-4xl     sm:text-4xl lg:text-4xl xl:text-6xl">
               Projects that Define Our <br />
               <span className="flex justify-center font-normal tracking-normal text-4xl lg:text-5xl">
                 Strategy, Creativity, and Growth.
