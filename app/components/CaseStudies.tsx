@@ -83,13 +83,13 @@ export default function CaseStudies() {
     return (
         <section ref={sectionRef} className="w-full bg-white text-black py-16 md:py-24 px-[8%]">
             <div className="w-full">
-                <div className="flex gap-10 lg:gap-12 items-start">
+                <div className="flex flex-col gap-10 md:flex-row lg:gap-12 items-start">
                     {/* LEFT — Sticky Intro Column (4 columns) */}
                     <div className="lg:col-span-4 w-full lg:sticky lg:top-28">
                         {/* <span className="text-[12px] font-normal text-[#8d8d8d] tracking-[0.12px] uppercase mb-3 block">
               Selected work
             </span> */}
-                        <h2 className="text-left text-5xl sm:text-5xl font-light text-black tracking-[-0.025em] leading-[1.08] mb-5">
+                        <h2 className="text-left text-5xl sm:text-5xl font-bold opacity-70 text-black  leading-[1.08] mb-5">
                             Our case study
                         </h2>
                         <p className="text-[15px] text-[#666666] leading-[1.6] max-w-[38ch] mb-8">
@@ -98,7 +98,7 @@ export default function CaseStudies() {
                         </p>
                         <Link
                             href="/case-study"
-                            className="group inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
+                            className="group hidden md:inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
                         >
                             <span>View all case studies</span>
                             <span className="transform transition-transform duration-300 group-hover:translate-x-1">
@@ -108,7 +108,7 @@ export default function CaseStudies() {
                     </div>
 
                     {/* RIGHT — fixed 2-column / 3-row grid, only splits into columns once the layout is actually side-by-side */}
-                    <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 lg:gap-x-8 lg:gap-y-4 auto-rows-fr">
+                    <div className="max-md:w-full lg:col-span-8 flex flex-col gap-x-6 gap-y-3 md:grid md:grid-cols-2 lg:gap-x-10 lg:gap-y-14 auto-rows-fr">
                         {ALL_CASE_STUDIES.map((study, index) => (
                             <div
                                 key={`${study.link}-${index}`}

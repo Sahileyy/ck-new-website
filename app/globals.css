@@ -4,8 +4,7 @@
    --font-sans makes both the `font-sans` utility and Tailwind's preflight
    default resolve to Inter, so the whole document inherits it. */
 @theme {
-  --font-neutral: var(--font-neutral), sans-serif;
-  --font-sans: var(--font-neutral), var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -24,7 +23,7 @@
 body {
   background-color: #FAFAFA;
   color: #0F172A;
-  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-jakarta), sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   -ms-overflow-style: none;
 }
@@ -43,13 +42,20 @@ h2,
 h3,
 h4,
 .font-heading {
-  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-syne), sans-serif;
+  font-family: var(--font-neutral), var(--font-inter), sans-serif;
+  text-transform: uppercase;
+}
+
+.heading-normal-case {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  text-transform: none;
 }
 
 /* Exclude Hero section from primary font (retains Lexend/Syne) */
 .hero-section,
 .hero-section * {
-  font-family: var(--font-lexend), var(--font-syne), var(--font-jakarta), sans-serif;
+  font-family: var(--font-neutral), var(--font-inter), sans-serif;
+  text-transform: uppercase;
 }
 
 /* Exclude Hero section from primary font (retains Lexend/Syne) */

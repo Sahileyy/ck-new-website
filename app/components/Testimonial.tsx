@@ -299,7 +299,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
         </div>
 
         {/* --- MOBILE / TABLET HORIZONTAL SWIPEABLE THUMBNAIL STRIP --- */}
-        <div className="lg:hidden mt-6 -mx-[8%] px-[8%]">
+        <div className="hidden md:block lg:hidden mt-6 -mx-[8%] px-[8%]">
           <div className="flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2">
             {services.map((s, i) => (
               <button

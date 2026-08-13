@@ -27,11 +27,12 @@ export default function Home() {
       {/* Trusted Client Logos Section */}
       <TrustedLogos />
 
+      <ServicesShowcase />
+      
       {/* Case Studies Section */}
       <CaseStudies />
 
       <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
-      <ServicesShowcase />
       {/* Blog Cards Section */}
       <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
