@@ -16,7 +16,7 @@ body {
   background-color: #FAFAFA;
   color: #0F172A;
   font-family: var(--font-neutral-face), var(--font-lexend), var(--font-jakarta), sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1,
@@ -192,7 +192,7 @@ body {
   background-color: #FAFAFA;
   color: #0F172A;
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
   -ms-overflow-style: none;
 }
 

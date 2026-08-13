@@ -98,7 +98,7 @@ export default function CaseStudies() {
                         </p>
                         <Link
                             href="/case-study"
-                            className="group hidden md:inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
+                            className="group hidden md:inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#028F1A] hover:border-[#028F1A] transition-colors duration-300 pb-0.5"
                         >
                             <span>View all case studies</span>
                             <span className="transform transition-transform duration-300 group-hover:translate-x-1">
@@ -130,10 +130,10 @@ export default function CaseStudies() {
                                 {/* Name & description */}
                                 <div className="p-5 flex flex-col flex-1">
                                     <div className="flex items-center gap-3 mb-3">
-                                        <span className="text-[12px] font-mono text-[#8d8d8d] uppercase">
+                                        <span className="text-[12px] font-mono text-[#028F1A] uppercase">
                                             {String(index + 1).padStart(2, '0')}
                                         </span>
-                                        <span className="text-[11px] font-medium text-[#b75928] uppercase tracking-wide">
+                                        <span className="text-[11px] font-medium text-[#028F1A] uppercase tracking-wide">
                                             {study.category}
                                         </span>
                                     </div>
@@ -148,7 +148,7 @@ export default function CaseStudies() {
 
                                     <Link
                                         href={study.link}
-                                        className="group inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#b75928] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
+                                        className="group inline-flex items-center gap-2 text-[13px] font-medium text-black tracking-[0.05em] uppercase border-b border-black hover:text-[#028F1A] hover:border-[#b75928] transition-colors duration-300 pb-0.5"
                                     >
                                         <span>View Case Study</span>
                                         <span className="transform transition-transform duration-300 group-hover:translate-x-1">

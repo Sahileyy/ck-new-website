@@ -40,7 +40,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
   ];
 
   return (
-    <section className="w-full bg-white px-[8%] py-16">
+    <section className="w-full bg-white px-[8%] py-16 rounded-b-3xl">
       <h2 className="font-neutral font-small text-2xl sm:text-4xl text-[#2B3838] mb-10">
         Blog
       </h2>

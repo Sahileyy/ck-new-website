@@ -9,7 +9,7 @@ interface FooterProps {
 
 export default function Footer({ onOpenTalkModal }: FooterProps) {
   return (
-    <footer id="contact" className="relative z-20 px-[8%] py-16 lg:py-24 bg-black text-white border-t border-neutral-800">
+    <footer id="contact" className="sticky bottom-0 left-0 z-0 w-full px-[8%] py-16 lg:py-24 bg-black text-white border-t border-neutral-800 rounded-t-3xl overflow-hidden">
       <div className="w-full max-w-7xl mx-auto flex flex-col justify-between gap-16 lg:gap-20">
         
         {/* Top Collaboration Section */}

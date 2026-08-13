@@ -171,7 +171,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
         {/* --- HEADER --- */}
         <div className="flex items-end justify-between gap-4 mb-6 lg:mb-8">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-medium text-[#0F172A] tracking-tighter">
+            <h2 className="text-2xl sm:text-3xl font-bold opacity-80 lg:text-5xl heading-normal-case">
               What's our clients say
             </h2>
             <p className="text-slate-500 text-2xl sm:text-3xl lg:text-[32px] font-normal tracking-tighter">
@@ -180,8 +180,8 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
           </div>
 
           <div className="flex items-center justify-end gap-1.5 sm:gap-2 shrink-0">
-           <button onClick={prev} aria-label="Previous services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#6366F1] hover:text-[#6366F1] "><ArrowLeft className="w-5 h-5" /></button>
-            <button onClick={next} aria-label="Next services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#6366F1]  hover:text-[#6366F1]  "><ArrowRight className="w-5 h-5" /></button>
+           <button onClick={prev} aria-label="Previous services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#028F1A] hover:text-[#028F1A] "><ArrowLeft className="w-5 h-5" /></button>
+            <button onClick={next} aria-label="Next services" className="flex size-14 items-center justify-center rounded-full border border-[#0F172A] text-2xl text-[#0F172A] transition-colors hover:border-[#028F1A]  hover:text-[#028F1A]  "><ArrowRight className="w-5 h-5" /></button>
           </div>
         </div>
 
@@ -290,7 +290,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
           <div className="shrink-0 md:self-center">
             <button
               onClick={onOpenTalkModal}
-              className="px-4 py-2 sm:px-5 sm:py-2.5 bg-white text-[#6366F1] border border-slate-200 hover:border-[#6366F1] rounded-lg shadow-2xs font-medium text-sm tracking-[-0.01em] transition-all inline-flex items-center gap-1.5 cursor-pointer group"
+              className="px-4 py-2 sm:px-5 sm:py-2.5 bg-white text-black hover:text-[#028F1A] border border-black hover:border-[#028F1A] rounded-lg shadow-2xs font-medium text-sm tracking-[-0.01em] transition-all inline-flex items-center gap-1.5 cursor-pointer group"
             >
               <span>Discuss Your Project</span>
               <span className="text-sm group-hover:translate-x-0.5 transition-transform">›</span>
