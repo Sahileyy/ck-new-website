@@ -30,7 +30,7 @@ export default function TrustedLogos() {
     return (
         <section
             id="clients"
-            className="w-full h-screen min-h-screen flex flex-col justify-between items-center py-10 px-6 sm:px-12 lg:px-16 bg-white text-neutral-900 relative overflow-hidden"
+            className="w-full h-screen min-h-screen flex flex-col justify-between items-center py-10 px-[8%] bg-white text-neutral-900 relative overflow-hidden"
         >
             <Spotlight
                 className="-top-40 left-0 md:left-60 md:-top-20"
@@ -39,9 +39,9 @@ export default function TrustedLogos() {
             <div className="relative z-10 w-full h-full max-w-full mx-auto text-center flex flex-col justify-between items-center py-4">
                 {/* Header Group */}
                 <div className="flex flex-col items-center">
-                    <h2 className="font-heading text-2xl opacity-80 sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight leading-tight text-neutral-900">
+                    <h2 className=" text-2xl  sm:text-3xl md:text-4xl lg:text-[2.5rem] tracking-tight leading-tight text-neutral-900">
                         Trusted by leading <br />
-                        <span className="animate-minimal-gradient inline-block">brands</span> across industries
+                        <span className="animate-minimal-gradient  font-bold inline-block">brands</span> across industries
                     </h2>
 
                     <p className="mt-3 max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed font-normal text-center text-neutral-600">

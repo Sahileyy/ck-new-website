@@ -44,23 +44,27 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
           />
         </Link>
 
-        {/* Center Navigation Links */}
-        <nav className="hidden lg:flex items-center justify-center gap-12 text-base lg:text-lg font-light tracking-wide text-gray-700 flex-1 mx-auto">
-          <a href="#work" className="hover:text-gray-900 transition-colors">Work</a>
-          <a href="#services" className="hover:text-gray-900 transition-colors">Services</a>
-          <a href="#about" className="hover:text-gray-900 transition-colors">About Us</a>
-          <a href="#insights" className="hover:text-gray-900 transition-colors">Insights</a>
-          <a href="#careers" className="hover:text-gray-900 transition-colors">Careers</a>
-          <a href="#contact" className="hover:text-gray-900 transition-colors">Contact</a>
-        </nav>
-
-        {/* Right Side Spacer for Perfect Desktop Balance */}
-        <div className="hidden lg:block w-24 shrink-0" />
+        {/* Right Section Navigation Links & Contact Button */}
+        <div className="hidden lg:flex items-center gap-8 text-base font-normal text-neutral-700">
+          <Link href="/" className="hover:text-black transition-colors">Home</Link>
+          <a href="#about" className="hover:text-black transition-colors">About Us</a>
+          <a href="#services" className="hover:text-black transition-colors">Services</a>
+          <a href="#projects" className="hover:text-black transition-colors">Projects</a>
+          <a href="#clients" className="hover:text-black transition-colors">Clients</a>
+          <button
+            type="button"
+            onClick={onOpenTalkModal}
+            className="ml-2 px-6 py-2.5 bg-black hover:bg-[#028F1A] text-white rounded-full text-sm font-medium tracking-tight transition-all duration-200 cursor-pointer shadow-xs hover:shadow-md active:scale-95"
+          >
+            Contact
+          </button>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-gray-700 p-1"
+          className="lg:hidden text-gray-700 p-1 cursor-pointer"
+          aria-label="Toggle Menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -70,13 +74,22 @@ export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#FAFAFA] border-b border-gray-200 px-6 py-4 mt-2 space-y-3 text-sm">
-          <a href="#work" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Work</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Services</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">About Us</a>
-          <a href="#insights" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Insights</a>
-          <a href="#careers" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Careers</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 font-medium tracking-[-0.01em]">Contact</a>
+        <div className="lg:hidden bg-[#FAFAFA] border-b border-gray-200 px-6 py-5 mt-2 space-y-3.5 text-base font-normal">
+          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block text-gray-800 hover:text-black">Home</Link>
+          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-800 hover:text-black">About Us</a>
+          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-800 hover:text-black">Services</a>
+          <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="block text-gray-800 hover:text-black">Projects</a>
+          <a href="#clients" onClick={() => setMobileMenuOpen(false)} className="block text-gray-800 hover:text-black">Clients</a>
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenTalkModal();
+            }}
+            className="w-full mt-3 py-3 bg-black hover:bg-[#028F1A] text-white rounded-xl text-sm font-medium transition-all text-center cursor-pointer"
+          >
+            Contact
+          </button>
         </div>
       )}
     </header>

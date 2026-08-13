@@ -167,11 +167,11 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
       tabIndex={0}
       className="w-full bg-white px-[8%] py-16 lg:py-24 scroll-mt-14 focus:outline-none"
     >
-      <div className="w-full max-w-[1420px] mx-auto">
+      <div className="w-full mx-auto">
         {/* --- HEADER --- */}
         <div className="flex items-end justify-between gap-4 mb-6 lg:mb-8">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold opacity-80 lg:text-5xl heading-normal-case">
+            <h2 className="text-2xl sm:text-3xl  lg:text-6xl heading-normal-case">
               What's our clients say
             </h2>
             <p className="text-slate-500 text-2xl sm:text-3xl lg:text-[32px] font-normal tracking-tighter">

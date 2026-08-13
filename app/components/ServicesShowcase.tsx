@@ -13,7 +13,7 @@ const services = [
 
 export default function ServicesShowcase() {
   return (
-    <section id="our-services" className="w-full bg-white px-[4%] py-20 lg:px-[8%] lg:py-28">
+    <section id="services" className="w-full bg-white px-[4%] py-20 lg:px-[8%] lg:py-28">
       <div className="mx-auto max-w-[1720px]">
         {/* <div className="text-center">
           <p className="text-3xl font-bold opacity-80 lg:text-4xl uppercase mb-20 text-neutral-900 "> services</p>
@@ -21,7 +21,7 @@ export default function ServicesShowcase() {
         <div className="grid gap-6 pb-14 lg:grid-cols-[1.4fr_0.9fr] lg:items-end lg:pb-20">
           <div>
             <p className="text-xl font-medium uppercase tracking-[0.18em] animate-minimal-gradient inline-block">Services</p>
-            <h2 className="heading-normal-case text-4xl font-bold leading-[0.95]  opacity-80 sm:text-4xl lg:text-5xl xl:text-6xl"> Our Area of Expertise </h2>
+            <h2 className="heading-normal-case text-4xl leading-[0.95]  opacity-80 sm:text-4xl lg:text-5xl xl:text-6xl"> Our Area of Expertise </h2>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">CK Creatives brings strategy, design, content, and technology together to create marketing that moves your business forward.</p>
         </div>

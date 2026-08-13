@@ -21,7 +21,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
       id: 2,
       title: "Trellis Impact 26 Insights: Where Innovation Powers Sustainable Business",
       excerpt:
-        "Businesses are entering a new phase of sustainable growth, where scaling AI infrastructure, circular models, low-carbon operations, carbon drawdown, power sourcing, and innovation is becoming central to competitiveness and resilience.",
+        "Businesses are entering a new phase of sustainable growth, where scaling AI infrastructure, circular models, low-carbon operations, carbon drawdown.",
       type: "Blog",
       date: "10 Jul 2026",
       image: "/images/blog/image2.png",
@@ -31,7 +31,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
       id: 3,
       title: "Sustainability redefined: from ambition to value creation in today's Europe",
       excerpt:
-        "Sustainability in Europe is entering a more decisive phase. Amid economic uncertainty, geopolitical tensions, and growing regulatory complexity, organizations are moving beyond ambition-setting toward execution.",
+        "Sustainability in Europe is entering a more decisive phase. Amid economic uncertainty, geopolitical tensions, and growing regulatory complexity.",
       type: "Blog",
       date: "10 Jul 2026",
       image: "/images/blog/image3.png",
@@ -49,8 +49,8 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
         {blogs.map((item) => (
           <div
             key={item.id}
-            style={{ backgroundColor: item.isFeaturedCard ? "#edffefff" : "transparent" }}
-            className="flex flex-col justify-between overflow-hidden transition-all duration-300 rounded-none p-0"
+            className={`group relative flex flex-col justify-between overflow-hidden transition-colors duration-300 rounded-none p-0 ${item.isFeaturedCard ? "bg-[#edffef]" : "bg-transparent hover:bg-[#edffef]/60"
+              }`}
           >
             <div>
               {/* Header Image Container */}
@@ -63,7 +63,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
               </div>
 
               {/* Card Body */}
-              <div className={item.isFeaturedCard ? "p-6 sm:p-8" : "py-6"}>
+              <div className={item.isFeaturedCard ? "p-6 sm:p-8" : "py-6 px-4 sm:px-6"}>
                 {/* Title in Editorial Serif Font */}
                 <h3
                   className={`text-xl sm:text-2xl font-serif text-[#2B3838] leading-snug mb-4 ${item.isFeaturedCard ? "font-normal" : "font-serif"

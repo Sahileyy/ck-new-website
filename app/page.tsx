@@ -13,6 +13,8 @@ import ServicesShowcase from "./components/ServicesShowcase";
 import Edge from "./components/Edge";
 import Work from "./components/Work";
 import ContactModal from "./components/ContactModal";
+import VisionMission from "./components/team";
+
 
 export default function Home() {
   const [isTalkModalOpen, setIsTalkModalOpen] = useState(false);
@@ -39,6 +41,10 @@ export default function Home() {
         <CaseStudies />
 
         <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+ 
+      <VisionMission />
+      {/* Blog Cards Section */}
+      {/* <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} /> */}
 
         {/* Work Section */}
         <Edge />
