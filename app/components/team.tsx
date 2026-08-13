@@ -42,7 +42,7 @@ const content = [
     {
         id: "founders",
         label: "Founders",
-        heading: "Founders",
+        heading: "Founder",
         image: "/images/founders/brijin-reworked.png",
         tags: [
             "Interior Designer", "Project Management", "Construction Team", "CAD Team",
