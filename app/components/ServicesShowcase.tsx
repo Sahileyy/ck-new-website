@@ -13,8 +13,8 @@ const services = [
 
 export default function ServicesShowcase() {
   return (
-    <section id="our-services" className="w-full bg-white px-[4%] py-20 lg:px-[8%] lg:py-28">
-      <div className="mx-auto max-w-[1720px]">
+    <section id="our-services" className="w-full bg-white px-[8%] py-20 lg:py-28">
+      <div className="w-full mx-auto">
         <div className="text-center">
           <p className="text-4xl lg:text-5xl mb-20 tracking-tighter">Our services</p>
         </div>

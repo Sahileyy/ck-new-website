@@ -9,6 +9,8 @@ import TrustedLogos from "./components/TrustedLogos";
 import BlogSection from "./components/BlogSection";
 import FloatingParticles from "./components/FloatingParticles";
 import ServicesShowcase from "./components/ServicesShowcase";
+import VisionMission from "./components/team";
+
 
 export default function Home() {
   const [isTalkModalOpen, setIsTalkModalOpen] = useState(false);
@@ -27,11 +29,13 @@ export default function Home() {
       {/* Trusted Client Logos Section */}
       <TrustedLogos />
 
+      <ServicesShowcase />
       {/* Case Studies Section */}
       <CaseStudies />
 
+
       <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
-      <ServicesShowcase />
+      <VisionMission />
       {/* Blog Cards Section */}
       <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
