@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import CaseStudies from "./components/CaseStudies";
 import TrustedLogos from "./components/TrustedLogos";
 import BlogSection from "./components/BlogSection";
+import Footer from "./components/Footer";
 import FloatingParticles from "./components/FloatingParticles";
 
 export default function Home() {
@@ -30,6 +31,9 @@ export default function Home() {
 
       {/* Blog Cards Section */}
       <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+
+      {/* Footer Section */}
+      <Footer onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
       {/* Simple Modal Contact Drawer */}
       {isTalkModalOpen && (

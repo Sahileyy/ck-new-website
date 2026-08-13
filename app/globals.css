@@ -135,3 +135,34 @@ h4,
 .animate-marquee-down {
   animation: marqueeDown linear infinite;
 }
+
+/* Smooth Service Project Card Transition */
+@keyframes serviceCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-service-fade-in {
+  animation: serviceCardFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Horizontal Infinite Marquee Animation */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 30s linear infinite;
+}
+
