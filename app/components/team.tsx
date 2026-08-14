@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -34,7 +34,7 @@ const content = [
     {
         id: "founders",
         label: "Founders",
-        heading: "Founder",
+        heading: "Founders",
         previewImage: "/images/ck-ai3.png",
         image: "/images/founders/brijin-reworked.png",
         tags: [
@@ -49,6 +49,14 @@ const AboutUs = () => {
     const leftRef = useRef(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [activeIndex, setActiveIndex] = React.useState(0);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"],
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.95]);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -74,6 +82,7 @@ const AboutUs = () => {
 
     return (
         <section ref={containerRef} className="relative bg-white text-black px-[8%]">
+            <motion.div style={{ opacity, scale }} className="w-full">
             <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_60%,_rgba(255,255,255,0.2)_100%)]" />
 
             <div className="relative z-10 flex flex-col lg:flex-row w-full mx-auto">
@@ -159,16 +168,16 @@ const AboutUs = () => {
                             className="h-screen flex flex-col items-center justify-center pl-6 lg:pl-12 bg-white"
                         >
                             {item.id === "who-we-are" ? (
-                                <div className="w-full flex flex-col items-center">
-                                    <motion.h2
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        className="font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-8 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent"
-                                    >
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="w-full flex flex-col items-center"
+                                >
+                                    <h2 className="font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-8 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
                                         {item.heading}
-                                    </motion.h2>
+                                    </h2>
 
                                     <div className="relative w-full flex flex-col items-center gap-16 pl-8 md:pl-12 mt-16 z-10">
                                         {/* Green spreading glow behind stats */}
@@ -179,28 +188,35 @@ const AboutUs = () => {
                                             { number: "08", label: "Global Offices\nIn Asia Pacific" },
                                             { number: "3M", label: "SQM Project\nCompleted" },
                                         ].map((stat, idx) => (
-                                            <div key={idx} className="w-full flex items-center justify-between">
+                                            <motion.div 
+                                                key={idx}
+                                                initial={{ opacity: 0, x: 30 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: false, amount: 0.3 }}
+                                                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                                                className="w-full flex items-center justify-between"
+                                            >
                                                 <span className="font-neutral text-7xl md:text-8xl leading-none text-[#2B3838]">
                                                     {stat.number}
                                                 </span>
                                                 <span className="text-[#2B3838] text-lg md:text-xl text-right leading-snug whitespace-pre-line">
                                                     {stat.label}
                                                 </span>
-                                            </div>
+                                            </motion.div>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
                             ) : (
-                                <div className="relative w-full flex flex-col items-center">
-                                    <motion.h2
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        className="relative z-0 font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-6 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent"
-                                    >
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="relative w-full flex flex-col items-center"
+                                >
+                                    <h2 className="relative z-0 font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-6 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
                                         {item.heading}
-                                    </motion.h2>
+                                    </h2>
 
                                     {item.id === "founders" ? (
                                         <div className="relative z-10 -mt-[5%] w-full max-w-md aspect-[3/4] flex items-center justify-center">
@@ -235,7 +251,7 @@ const AboutUs = () => {
                                             </div>
                                         </div>
                                     )}
-                                </div>
+                                </motion.div>
                             )}
 
                             {item.id !== "who-we-are" && item.tags.length > 0 && (
@@ -253,6 +269,7 @@ const AboutUs = () => {
                 </div>
 
             </div>
+            </motion.div>
         </section>
     );
 };

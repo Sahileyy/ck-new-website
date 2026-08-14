@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react"; 
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ServicesProps {
   onOpenTalkModal: () => void;
@@ -58,6 +59,15 @@ const flexRatios = [5.2, 2.6, 1.4, 1.1, 0.95, 0.85];
 const hoverFlexRatios = [7.8, 4.4, 2.8, 2.3, 2.0, 1.8];
 
 export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.94, 1, 1, 0.94]);
+
   const total = services.length;
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState<"next" | "prev">("next");
@@ -162,12 +172,16 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
 
   return (
     <section
+      ref={sectionRef}
       id="services"
       onKeyDown={onKeyDown}
       tabIndex={0}
       className="w-full bg-white px-[8%] py-16 lg:py-24 scroll-mt-14 focus:outline-none"
     >
-      <div className="w-full mx-auto">
+      <motion.div 
+        style={{ opacity, scale }}
+        className="w-full mx-auto"
+      >
         {/* --- HEADER --- */}
         <div className="flex items-end justify-between gap-4 mb-6 lg:mb-8">
           <div>
@@ -316,7 +330,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

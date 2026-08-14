@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface WorkProps {
   onOpenTalkModal?: () => void;
@@ -102,15 +103,28 @@ function ScrollRevealText({ text }: { text: string }) {
 }
 
 export default function Work({ onOpenTalkModal }: WorkProps) {
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.94, 1, 1, 0.94]);
+
   return (
     <>
-      <section id="work" className="w-full bg-white pb-4 md:pb-6 pt-0 px-[4%] lg:px-[8%]">
-        <div className="mx-auto max-w-[1720px]">
+      <section ref={sectionRef} id="work" className="w-full bg-white pb-4 md:pb-6 pt-0 px-[4%] lg:px-[8%]">
+        <motion.div style={{ opacity, scale }} className="mx-auto max-w-[1720px]">
           {/* 4-Column Grid matching standard section width */}
           <div className="grid grid-cols-2 lg:grid-cols-4 w-full gap-3 md:gap-4 lg:gap-5">
             {VIDEOS.map((vid, idx) => (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: (idx % 4) * 0.1, ease: "easeOut" }}
                 className="relative flex h-80 md:h-[35rem] flex-col items-start justify-start overflow-hidden bg-gray-100 group w-full rounded-3xl"
               >
                 <video
@@ -123,10 +137,10 @@ export default function Work({ onOpenTalkModal }: WorkProps) {
                 />
                 {/* Dark overlay on hover for premium feel */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Banner Section */}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 type CaseStudy = {
     image: string;
@@ -78,18 +79,20 @@ const ALL_CASE_STUDIES: CaseStudyWithCategory[] = Object.entries(CASE_STUDIES_BY
 
 export default function CaseStudies() {
     const sectionRef = useRef<HTMLElement | null>(null);
-    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     return (
         <section id="projects" ref={sectionRef} className="w-full bg-white text-black py-16 md:py-24 px-[8%]">
             <div className="w-full">
                 <div className="flex flex-col gap-10 md:flex-row lg:gap-12 items-start">
                     {/* LEFT — Sticky Intro Column (4 columns) */}
-                    <div className="lg:col-span-4 w-full lg:sticky lg:top-28">
-                        {/* <span className="text-[12px] font-normal text-[#8d8d8d] tracking-[0.12px] uppercase mb-3 block">
-              Selected work
-            </span> */}
-                        <h2 className="text-left text-5xl sm:text-5xl   text-black  leading-[1.08] mb-5">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.2 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="lg:col-span-4 w-full lg:sticky lg:top-28"
+                    >
+                        <h2 className="text-left text-5xl sm:text-5xl text-black leading-[1.08] mb-5">
                             Our case study
                         </h2>
                         <p className="text-[15px] text-[#666666] leading-[1.6] max-w-[38ch] mb-8">
@@ -105,20 +108,20 @@ export default function CaseStudies() {
                                 →
                             </span>
                         </Link>
-                    </div>
+                    </motion.div>
 
-                    {/* RIGHT — fixed 2-column / 3-row grid, only splits into columns once the layout is actually side-by-side */}
+                    {/* RIGHT — fixed 2-column / 3-row grid */}
                     <div className="max-md:w-full lg:col-span-8 flex flex-col gap-x-6 gap-y-3 md:grid md:grid-cols-2 lg:gap-x-10 lg:gap-y-14 auto-rows-fr">
                         {ALL_CASE_STUDIES.map((study, index) => (
-                            <div
+                            <motion.div
                                 key={`${study.link}-${index}`}
-                                ref={(el) => {
-                                    cardsRef.current[index] = el;
-                                }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: (index % 2) * 0.15, ease: "easeOut" }}
                                 className="w-full h-full flex flex-col rounded-[16px] border border-[#e5e4e4] bg-white shadow-sm hover:shadow-md overflow-hidden transition-all duration-300"
                             >
                                 {/* Image placeholder */}
-
                                 <div className="w-full aspect-[3/2] bg-[#f4f4f4] overflow-hidden">
                                     <img
                                         src={study.image}
@@ -156,7 +159,7 @@ export default function CaseStudies() {
                                         </span>
                                     </Link>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
