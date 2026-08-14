@@ -35,6 +35,7 @@ const content = [
         id: "founders",
         label: "Founders",
         heading: "Founder",
+        previewImage: "/images/ck-ai3.png",
         image: "/images/founders/brijin-reworked.png",
         tags: [
             "Interior Designer", "Project Management", "Construction Team", "CAD Team",
