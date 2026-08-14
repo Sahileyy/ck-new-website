@@ -35,14 +35,15 @@ export default function Home() {
         {/* Trusted Client Logos Section */}
         <TrustedLogos />
 
+        <CaseStudies />
+
         <ServicesShowcase />
         
+      <VisionMission />
         {/* Case Studies Section */}
-        <CaseStudies />
 
         <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
  
-      <VisionMission />
       {/* Blog Cards Section */}
       {/* <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} /> */}
 

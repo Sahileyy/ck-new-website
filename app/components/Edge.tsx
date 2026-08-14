@@ -17,14 +17,12 @@ export default function Edge() {
   return (
     <div id="edge" className="w-full pt-16 md:pt-24 pb-4 md:pb-8 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1720px] px-[4%] lg:px-[8%]">
-        <div className="flex gap-6 pb-12  lg:items-end lg:pb-16 w-3/4">
+        <div className="flex gap-6 pb-12 lg:items-end lg:pb-16 w-full">
           <div>
             {/* <p className="text-xl font-medium uppercase tracking-[0.18em] text-[#e77800]">Our Works</p> */}
-            <h2 className="heading-normal-case  tracking-tighter  opacity-80 text-4xl     sm:text-4xl lg:text-4xl xl:text-6xl">
+            <h2 className="heading-normal-case tracking-tighter text-4xl sm:text-4xl lg:text-4xl xl:text-6xl">
               Projects that Define Our <br />
-              <span className="flex justify-center font-normal tracking-normal text-4xl lg:text-5xl">
-                Strategy, Creativity, and Growth.
-              </span>
+              <span className="opacity-80 lg:text-5xl">Strategy, Creativity, and Growth.</span>
             </h2>
           </div>
           {/* <p className="max-w-xl text-base leading-relaxed  text-slate-600 sm:text-lg">
@@ -34,7 +32,7 @@ export default function Edge() {
       </div>
       
       {/* Auto Carousel */}
-      <div className="mx-auto max-w-[1720px] px-[4%] lg:px-[8%]">
+      <div className="mx-auto max-w-[1750px] px-[4%] lg:px-[8%]">
         <div className="relative w-full flex overflow-hidden">
           {/* Smooth Fade Overlays on Both Ends - Subtle Half Opacity */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 md:w-16 bg-gradient-to-r from-white/60 via-white/30 to-transparent z-20" />
