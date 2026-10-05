@@ -1,7 +1,7 @@
 "use client";
 
 import ExploreButton from "./ExploreButton";
-import { motion } from "framer-motion";
+
 
 interface BlogSectionProps {
   onOpenTalkModal?: () => void;
@@ -16,6 +16,7 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
       date: "16 Jul 2026",
       image: "/images/blog/image1.png",
       isFeaturedCard: true,
+      buttonText: "Read report",
     },
     {
       id: 2,
@@ -40,26 +41,16 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
   ];
 
   return (
-    <section className="w-full min-h-screen flex flex-col justify-between bg-white px-[8%] py-16 sm:py-20">
+    <section className="w-full flex flex-col justify-between bg-white px-[8%]">
       <div>
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-neutral font-small text-2xl sm:text-4xl text-[#2B3838] mb-10"
-        >
+        <h2 className="text-2xl sm:text-4xl font-normal uppercase text-[#2B3838] mb-10">
           Blog
-        </motion.h2>
+        </h2>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {blogs.map((item, idx) => (
-            <motion.div
+          {blogs.map((item) => (
+            <div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: idx * 0.15, ease: "easeOut" }}
               className={`group relative flex flex-col justify-between overflow-hidden transition-colors duration-300 rounded-none p-0 ${item.isFeaturedCard ? "bg-[#edffef]" : "bg-transparent hover:bg-[#edffef]/60"
                 }`}
             >
@@ -110,21 +101,15 @@ export default function BlogSection({ onOpenTalkModal }: BlogSectionProps) {
                   </button>
                 </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
 
       {/* Explore CTA Button at bottom of blog section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-9 flex justify-end w-full"
-      >
+      <div className="mt-9 flex justify-end w-full">
         <ExploreButton />
-      </motion.div>
+      </div>
     </section>
   );
 }

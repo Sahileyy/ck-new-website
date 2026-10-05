@@ -19,8 +19,8 @@ export default function Footer({ onOpenTalkModal }: FooterProps) {
             alt="CK Creatives Logo"
             className="h-10 md:h-12 w-auto object-contain mb-2 invert"
           />
-          <h2 className="text-2xl sm:text-3xl font-light text-neutral-300">Want to collaborate?</h2>
-          <h3 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white">Let’s talk</h3>
+          <h2 className="text-2xl sm:text-3xl font-normal uppercase text-neutral-300">Want to collaborate?</h2>
+          <h3 className="text-4xl sm:text-6xl lg:text-7xl font-normal uppercase tracking-tight text-white">Let’s talk</h3>
           
           <button
             type="button"
@@ -41,7 +41,7 @@ export default function Footer({ onOpenTalkModal }: FooterProps) {
           
           {/* Ask Something */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
-            <h4 className="text-lg font-medium text-neutral-300">Want to ask something?</h4>
+            <h4 className="text-lg font-normal uppercase text-neutral-300">Want to ask something?</h4>
             <a href="mailto:team@ckcreatives.in" className="text-sm sm:text-base text-neutral-400 hover:text-white transition-colors">
               team@ckcreatives.in
             </a>
@@ -52,7 +52,7 @@ export default function Footer({ onOpenTalkModal }: FooterProps) {
 
           {/* Visit Us */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
-            <h4 className="text-lg font-medium text-neutral-300">Want to visit us?</h4>
+            <h4 className="text-lg font-normal uppercase text-neutral-300">Want to visit us?</h4>
             <a
               href="https://maps.google.com"
               target="_blank"
@@ -67,7 +67,7 @@ export default function Footer({ onOpenTalkModal }: FooterProps) {
 
           {/* Social Links */}
           <div className="flex flex-col items-center md:items-end text-center md:text-right gap-4">
-            <h4 className="text-lg font-medium text-neutral-300">Stay in the loop</h4>
+            <h4 className="text-lg font-normal uppercase text-neutral-300">Stay in the loop</h4>
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
               <a
                 href="https://dribbble.com"

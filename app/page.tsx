@@ -22,37 +22,40 @@ export default function Home() {
   return (
     <main className="home-page min-h-screen flex flex-col bg-black font-sans text-gray-900 relative">
       {/* Upper Content Stage - Reveals footer underneath like a curtain */}
-      <div className="relative z-10 bg-[#FAFAFA] shadow-[0_25px_50px_rgba(0,0,0,0.3)] rounded-b-3xl pb-1">
+      <div className="relative z-10 bg-white shadow-[0_25px_50px_rgba(0,0,0,0.3)] rounded-b-3xl pb-24">
         {/* Canvas Floating Green Particles */}
         <FloatingParticles />
 
         {/* Persistent Navbar */}
         <Navbar onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
-        {/* Hero Section */}
-        <Hero onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+        {/* Standard gap between all sections (170px) */}
+        <div className="flex flex-col gap-[170px]">
+          {/* Hero, About (Team), & Trusted Logos (Brands) - seamless without 170px gap */}
+          <div className="flex flex-col">
+            <Hero onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+            <VisionMission />
+            <TrustedLogos />
+          </div>
 
-        {/* Trusted Client Logos Section */}
-        <TrustedLogos />
+          {/* Case Studies Section */}
+          <CaseStudies />
 
-        <CaseStudies />
+          {/* Services Section */}
+          <ServicesShowcase />
 
-        <ServicesShowcase />
-        
-      <VisionMission />
-        {/* Case Studies Section */}
+          {/* Testimonial Section */}
+          <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
 
-        <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
- 
-      {/* Blog Cards Section */}
-      {/* <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} /> */}
+          {/* Projects / Work Section */}
+          <div className="flex flex-col gap-4 md:gap-5">
+            <Edge />
+            <Work onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+          </div>
 
-        {/* Work Section */}
-        <Edge />
-        <Work onOpenTalkModal={() => setIsTalkModalOpen(true)} />
-
-        {/* Blog Cards Section */}
-        <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+          {/* Blog Cards Section */}
+          <BlogSection onOpenTalkModal={() => setIsTalkModalOpen(true)} />
+        </div>
       </div>
 
       {/* Footer Section - Sticky Curtain Reveal */}

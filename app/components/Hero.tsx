@@ -10,7 +10,7 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="hero-section w-full bg-white px-[8%] pb-12 pt-2">
+    <div className="hero-section w-full bg-white px-[8%]">
       <div className="w-full">
         {/* --- MAIN HERO CARD CONTAINER --- */}
         <div
@@ -34,9 +34,9 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
 
           {/* Left Text Content Box */}
           <div className="relative z-10 max-w-xl text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-[-0.035em] text-[#2B3838] leading-[1.15] mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal uppercase tracking-[-0.035em] text-[#2B3838] leading-[1.15] mb-4">
               Guiding Your Business <br />
-              Towards <span className="font-bold animate-minimal-gradient inline-block">Growth</span>
+              Towards <span className="font-normal animate-minimal-gradient inline-block">Growth</span>
             </h1>
 
             {/* Expandable Powerful Description */}

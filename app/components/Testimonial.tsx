@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react"; 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface ServicesProps {
   onOpenTalkModal: () => void;
@@ -59,15 +59,6 @@ const flexRatios = [5.2, 2.6, 1.4, 1.1, 0.95, 0.85];
 const hoverFlexRatios = [7.8, 4.4, 2.8, 2.3, 2.0, 1.8];
 
 export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.94, 1, 1, 0.94]);
-
   const total = services.length;
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState<"next" | "prev">("next");
@@ -172,20 +163,16 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
 
   return (
     <section
-      ref={sectionRef}
-      id="services"
+      id="testimonials"
       onKeyDown={onKeyDown}
       tabIndex={0}
-      className="w-full bg-white px-[8%] py-16 lg:py-24 scroll-mt-14 focus:outline-none"
+      className="w-full bg-white px-[8%] scroll-mt-14 focus:outline-none"
     >
-      <motion.div 
-        style={{ opacity, scale }}
-        className="w-full mx-auto"
-      >
+      <div className="w-full mx-auto">
         {/* --- HEADER --- */}
-        <div className="flex items-end justify-between gap-4 mb-6 lg:mb-8">
+        <div className="flex items-end justify-between gap-4 mb-6 lg:mb-12">
           <div>
-            <h2 className="text-2xl sm:text-3xl  lg:text-6xl heading-normal-case">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-normal uppercase leading-[0.95]">
               What's our clients say
             </h2>
             <p className="text-slate-500 text-2xl sm:text-3xl lg:text-[32px] font-normal tracking-tighter">
@@ -200,7 +187,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
         </div>
 
         {/* --- MAIN VISUAL STAGE: LARGE FEATURED IMAGE + PROGRESSIVE PREVIEW RAIL --- */}
-        <div className="flex flex-col lg:flex-row gap-3 lg:gap-3.5 items-stretch w-full h-[320px] sm:h-[380px] lg:h-[420px] xl:h-[460px]">
+        <div className="flex flex-col lg:flex-row gap-[4px] items-stretch w-full h-[320px] sm:h-[380px] lg:h-[420px] xl:h-[500px]">
           {/* Large featured media (~73% width on desktop) */}
           <div
             onTouchStart={onTouchStart}
@@ -262,7 +249,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
           </div>
 
           {/* Progressively Compressed Horizontal Preview Rail (~27% width on desktop) */}
-          <div className="preview-rail-container hidden lg:flex shrink-0 gap-3 lg:gap-3.5 h-full items-stretch min-w-0">
+          <div className="preview-rail-container hidden lg:flex shrink-0 gap-[4px] h-full items-stretch min-w-0">
             {previewItems.map(({ serviceIndex, service, flexRatio, hoverFlexRatio }) => {
               return (
                 <button
@@ -314,7 +301,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
 
         {/* --- MOBILE / TABLET HORIZONTAL SWIPEABLE THUMBNAIL STRIP --- */}
         <div className="hidden md:block lg:hidden mt-6 -mx-[8%] px-[8%]">
-          <div className="flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2">
+          <div className="flex gap-[3px] overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2">
             {services.map((s, i) => (
               <button
                 key={s.title}
@@ -330,7 +317,7 @@ export default function Testimonial({ onOpenTalkModal }: ServicesProps) {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -24,7 +24,9 @@ h2,
 h3,
 h4,
 .font-heading {
-  font-family: var(--font-neutral-face), var(--font-lexend), var(--font-syne), sans-serif;
+  font-family: var(--font-neutral), var(--font-inter), sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 /* Exclude Hero section from primary font (retains Lexend/Syne) */
@@ -210,21 +212,11 @@ h1,
 h2,
 h3,
 h4,
-.font-heading {
-  font-family: var(--font-neutral), var(--font-inter), sans-serif;
-  text-transform: uppercase;
-}
-
+.font-heading,
 .heading-normal-case {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  text-transform: none;
-}
-
-/* Exclude Hero section from primary font (retains Lexend/Syne) */
-.hero-section,
-.hero-section * {
   font-family: var(--font-neutral), var(--font-inter), sans-serif;
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 /* Exclude Hero section from primary font (retains Lexend/Syne) */
