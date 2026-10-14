@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -50,14 +50,6 @@ const AboutUs = () => {
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [activeIndex, setActiveIndex] = React.useState(0);
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.95]);
-
     useEffect(() => {
         const ctx = gsap.context(() => {
             content.forEach((item, i) => {
@@ -81,8 +73,8 @@ const AboutUs = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative bg-white text-black px-[8%]">
-            <motion.div style={{ opacity, scale }} className="w-full">
+        <section ref={containerRef} id="about" className="relative bg-white text-black px-[8%] scroll-mt-24">
+            <div className="w-full">
             <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_60%,_rgba(255,255,255,0.2)_100%)]" />
 
             <div className="relative z-10 flex flex-col lg:flex-row w-full mx-auto">
@@ -93,7 +85,7 @@ const AboutUs = () => {
                         <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#028F1A] mb-5 block">
                             About Us
                         </span>
-                        <h2 className="font-neutral text-4xl md:text-5xl leading-[1.15] mb-6 text-[#2B3838] tracking-tight">
+                        <h2 className="font-neutral text-4xl md:text-5xl font-normal uppercase leading-[1.15] mb-6 text-[#2B3838] tracking-tight">
                             The talent behind the transformation
                         </h2>
                         <p className="text-gray-500 text-base leading-relaxed mb-10">
@@ -168,14 +160,8 @@ const AboutUs = () => {
                             className="h-screen flex flex-col items-center justify-center pl-6 lg:pl-12 bg-white"
                         >
                             {item.id === "who-we-are" ? (
-                                <motion.div 
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false, amount: 0.3 }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
-                                    className="w-full flex flex-col items-center"
-                                >
-                                    <h2 className="font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-8 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
+                                <div className="w-full flex flex-col items-center">
+                                    <h2 className="font-neutral text-4xl md:text-5xl lg:text-6xl font-normal uppercase leading-none mb-8 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
                                         {item.heading}
                                     </h2>
 
@@ -188,12 +174,8 @@ const AboutUs = () => {
                                             { number: "08", label: "Global Offices\nIn Asia Pacific" },
                                             { number: "3M", label: "SQM Project\nCompleted" },
                                         ].map((stat, idx) => (
-                                            <motion.div 
+                                            <div 
                                                 key={idx}
-                                                initial={{ opacity: 0, x: 30 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                viewport={{ once: false, amount: 0.3 }}
-                                                transition={{ duration: 0.6, delay: idx * 0.15 }}
                                                 className="w-full flex items-center justify-between"
                                             >
                                                 <span className="font-neutral text-7xl md:text-8xl leading-none text-[#2B3838]">
@@ -202,19 +184,13 @@ const AboutUs = () => {
                                                 <span className="text-[#2B3838] text-lg md:text-xl text-right leading-snug whitespace-pre-line">
                                                     {stat.label}
                                                 </span>
-                                            </motion.div>
+                                            </div>
                                         ))}
                                     </div>
-                                </motion.div>
+                                </div>
                             ) : (
-                                <motion.div 
-                                    initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false, amount: 0.3 }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
-                                    className="relative w-full flex flex-col items-center"
-                                >
-                                    <h2 className="relative z-0 font-neutral text-4xl md:text-5xl lg:text-6xl leading-none mb-6 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
+                                <div className="relative w-full flex flex-col items-center">
+                                    <h2 className="relative z-0 font-neutral text-4xl md:text-5xl lg:text-6xl font-normal uppercase leading-none mb-6 bg-gradient-to-r from-[#78BE44] to-[#10B981] bg-clip-text text-transparent">
                                         {item.heading}
                                     </h2>
 
@@ -251,7 +227,7 @@ const AboutUs = () => {
                                             </div>
                                         </div>
                                     )}
-                                </motion.div>
+                                </div>
                             )}
 
                             {item.id !== "who-we-are" && item.tags.length > 0 && (
@@ -269,7 +245,7 @@ const AboutUs = () => {
                 </div>
 
             </div>
-            </motion.div>
+            </div>
         </section>
     );
 };

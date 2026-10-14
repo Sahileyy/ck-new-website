@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 const CLIENTS = [
   { title: "Client 1", src: "/client1.heic" },
@@ -16,37 +15,26 @@ const CLIENTS = [
 
 export default function Edge() {
   return (
-    <div id="edge" className="w-full pt-16 md:pt-24 pb-4 md:pb-8 bg-white overflow-hidden">
-      <div className="mx-auto max-w-[1720px] px-[4%] lg:px-[8%]">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex gap-6 pb-12 lg:items-end lg:pb-16 w-full"
-        >
+    <section id="edge" className="w-full bg-white px-[4%] lg:px-[8%] overflow-hidden">
+      <div className="mx-auto max-w-[1720px]">
+        {/* Section Heading */}
+        <div className="flex gap-6 pb-12 lg:items-end lg:pb-16 w-full">
           <div>
-            <h2 className="heading-normal-case tracking-tighter text-4xl sm:text-4xl lg:text-4xl xl:text-6xl">
+            <h2 className="tracking-tighter text-4xl sm:text-4xl lg:text-4xl xl:text-6xl font-normal uppercase">
               Projects that Define Our <br />
-              <span className="opacity-80 lg:text-5xl">Strategy, Creativity, and Growth.</span>
+              <span className="opacity-80 lg:text-5xl font-normal">Strategy, Creativity, and Growth.</span>
             </h2>
           </div>
-        </motion.div>
-      </div>
-      
-      {/* Auto Carousel */}
-      <div className="mx-auto max-w-[1750px] px-[4%] lg:px-[8%]">
+        </div>
+        
+        {/* Auto Carousel - Exactly aligned with 2nd row (Work section) */}
         <div className="relative w-full flex overflow-hidden">
-          {/* Smooth Fade Overlays on Both Ends - Subtle Half Opacity */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 md:w-16 bg-gradient-to-r from-white/60 via-white/30 to-transparent z-20" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 md:w-16 bg-gradient-to-l from-white/60 via-white/30 to-transparent z-20" />
-
-          <div className="flex w-max animate-marquee-left hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-marquee-left hover:[animation-play-state:paused] gap-3 md:gap-4 lg:gap-5 pr-3 md:pr-4 lg:pr-5">
             {/* Duplicate the list to create a seamless infinite loop */}
             {[...CLIENTS, ...CLIENTS].map((client, idx) => (
               <div
                 key={idx}
-                className="relative flex h-80 w-56 md:h-[35rem] md:w-96 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 shrink-0 mx-2 md:mx-4"
+                className="relative flex h-80 w-56 md:h-[35rem] md:w-96 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 shrink-0"
               >
                 <img
                   src={client.src}
@@ -59,6 +47,6 @@ export default function Edge() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
