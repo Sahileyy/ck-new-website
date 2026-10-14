@@ -38,11 +38,11 @@ export default function Home() {
             <TrustedLogos />
           </div>
 
-          {/* Case Studies Section */}
-          <CaseStudies />
-
           {/* Services Section */}
           <ServicesShowcase />
+
+          {/* Case Studies Section */}
+          <CaseStudies />
 
           {/* Testimonial Section */}
           <Testimonial onOpenTalkModal={() => setIsTalkModalOpen(true)} />
