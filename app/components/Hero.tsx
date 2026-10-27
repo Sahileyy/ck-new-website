@@ -1,80 +1,116 @@
+
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 interface HeroProps {
-  onOpenTalkModal: () => void;
+  onOpenTalkModal?: () => void;
 }
 
 export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Scroll progress for the sticky expansion track
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Only width transitions: Old width (86vw) -> Full screen width (100vw) -> Returns to old width (86vw)
+  const videoWidth = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    ["86vw", "100vw", "100vw", "86vw"]
+  );
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
 
   return (
-    <div className="hero-section w-full bg-white px-[8%]">
-      <div className="w-full">
-        {/* --- MAIN HERO CARD CONTAINER --- */}
-        <div
-          className="relative w-full rounded-[32px] bg-[#E4F6F3] p-8 sm:p-14 lg:p-20 overflow-hidden min-h-[90vh] flex flex-col justify-center"
-          style={{
-            boxShadow: "inset 0 0 220px 90px rgba(255,255,255,0.9), inset 0 0 100px 40px rgba(255,255,255,0.8)",
-          }}
-        >
-          {/* Background Video / 3D Graphics container on right */}
-          <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 z-0 overflow-hidden pointer-events-none opacity-80 lg:opacity-100 flex items-center justify-end">
+    <section className="hero-section relative w-full bg-white">
+      {/* 1. First: Bold Grand Editorial Heading (matching reference) */}
+      <div className="w-[86vw] mx-auto text-left pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-8 px-0">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-medium tracking-[-0.035em] text-[#141414] leading-[1.06] select-none normal-case [text-transform:none]">
+          Guiding your business. <br className="hidden sm:block" />
+          Towards growth.
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-[21px] font-normal text-neutral-500 mt-4 sm:mt-5 leading-relaxed tracking-[-0.01em] whitespace-normal lg:whitespace-nowrap">
+          We help ambitious businesses grow with marketing, branding &amp; digital solutions.
+        </p>
+      </div>
+
+      {/* 2. Sticky Scroll Container: Card -> Full Screen (100vw x 100vh) -> Returns to Old Width */}
+      <div
+        ref={containerRef}
+        id="hero-video-section"
+        className="hero-video-container relative w-full"
+        style={{ height: "240vh" }}
+      >
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden z-20">
+          <motion.div
+            style={{
+              width: videoWidth,
+              height: "100vh",
+              borderRadius: "0px",
+            }}
+            onClick={togglePlay}
+            className="relative h-screen overflow-hidden bg-black shadow-[0_20px_60px_rgba(0,0,0,0.18)] cursor-pointer group select-none rounded-none"
+          >
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover lg:object-contain object-right"
+              className="w-full h-full object-cover"
             >
-              <source src="/hero.meta.webm" type="video/webm" />
+              <source src="https://res.cloudinary.com/drgpcbhjc/video/upload/v1778837604/CK_WEBSITE_VIDEO_wide_1_zm8yux.mp4" type="video/mp4" />
             </video>
-          </div>
 
-          {/* Left Text Content Box */}
-          <div className="relative z-10 max-w-xl text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-normal uppercase tracking-[-0.035em] text-[#2B3838] leading-[1.15] mb-4">
-              Guiding Your Business <br />
-              Towards <span className="font-normal animate-minimal-gradient inline-block">Growth</span>
-            </h1>
-
-            {/* Expandable Powerful Description */}
-            <div className="text-[#64748B] text-base sm:text-lg font-normal tracking-[-0.01em] mb-8 leading-relaxed">
-              <p>
-                We help ambitious businesses grow with marketing, branding &amp; digital solutions.
-              </p>
-              {isExpanded && (
-                <p className="mt-3 text-[#64748B] font-normal leading-relaxed transition-all duration-300">
-                  From brand architecture and cinematic storytelling to high-converting digital ecosystems, we turn strategic vision into unstoppable market momentum.
-                </p>
-              )}
+            {/* Vibrant Circular Play/Pause Indicator (matching screenshots 1 & 2) */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <motion.div
+                animate={{
+                  scale: isPlaying ? 0.9 : 1,
+                  opacity: isPlaying ? 0.45 : 1,
+                }}
+                whileHover={{ scale: 1.15, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#5A52FF] text-white flex items-center justify-center shadow-[0_10px_35px_rgba(90,82,255,0.45)]"
+              >
+                {isPlaying ? (
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                ) : (
+                  <svg className="w-7 h-7 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                )}
+              </motion.div>
             </div>
 
-            <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
-              <button
-                type="button"
-                onClick={onOpenTalkModal}
-                className="px-6 py-3 bg-[#028F1A] hover:bg-[#017315] text-white font-medium text-sm tracking-[-0.01em] rounded-md shadow-xs transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <span>Get Started</span>
-                <span className="text-base">→</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="px-6 py-3 bg-transparent border border-[#028F1A] hover:bg-[#028F1A]/10 text-[#028F1A] font-medium text-sm tracking-[-0.01em] rounded-md transition-all cursor-pointer inline-flex items-center gap-2"
-              >
-                <span>{isExpanded ? "Show Less" : "Learn More"}</span>
-                <span className="text-xs">{isExpanded ? "↑" : "↓"}</span>
-              </button>
+            {/* Brand Watermark Bottom Right (matching screenshot 3) */}
+            <div className="absolute bottom-6 right-8 pointer-events-none select-none z-10">
+              <span className="text-white/60 font-bold text-lg sm:text-xl tracking-tight">
+                CK Creatives
+              </span>
             </div>
-          </div>
+          </motion.div>
         </div>
-
-
       </div>
-    </div>
+    </section>
   );
 }

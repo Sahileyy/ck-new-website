@@ -1,7 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { OriginButton } from "@/components/ui/origin-button";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
 
 interface NavbarProps {
   onOpenTalkModal: () => void;
@@ -9,89 +19,95 @@ interface NavbarProps {
 
 export default function CKNavbar({ onOpenTalkModal }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const lastScrollY = useRef(0);
 
-  useEffect(() => {
-    lastScrollY.current = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollDifference = currentScrollY - lastScrollY.current;
-
-      // Ignore tiny scroll movements so the navigation does not flicker.
-      if (Math.abs(scrollDifference) < 8) return;
-
-      setIsVisible(currentScrollY < 80 || scrollDifference < 0);
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Content navigation items — direct section links, no dropdowns as requested
+  const navItems = [
+    { name: "Projects", link: "#projects" },
+    { name: "Services", link: "#services" },
+    { name: "About Us", link: "#about" },
+    { name: "Clients", link: "#clients" },
+  ];
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full bg-[#FAFAFA]/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs px-[8%] py-5 md:py-6 transition-transform duration-300 ease-out ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
-    >
-      <div className="w-full flex items-center justify-between relative">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 z-10 shrink-0">
-          <img
-            src="/images/ck.logo.png?v=1"
-            alt="CK Creatives Logo"
-            className="h-10 md:h-11 w-auto object-contain"
-          />
+    <Navbar>
+      {/* Desktop Navigation */}
+      <NavBody>
+        {/* Brand Logo / Name */}
+        <Link href="/" className="relative z-20 flex items-center gap-2.5 px-2 py-1 text-black group shrink-0">
+          <span className="text-xl sm:text-[22px] font-bold tracking-tight text-black font-sans transition-opacity group-hover:opacity-75">
+            CK Creatives
+          </span>
         </Link>
 
-        {/* Right Section Navigation Links matching reference screenshot */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs sm:text-sm font-medium tracking-wider text-neutral-900 uppercase">
-          <Link href="/" className="hover:text-[#028F1A] transition-colors">Home</Link>
-          <a href="#about" className="hover:text-[#028F1A] transition-colors">About Us</a>
-          <a href="#services" className="hover:text-[#028F1A] transition-colors">Services</a>
-          <a href="#projects" className="hover:text-[#028F1A] transition-colors">Projects</a>
-          <a href="#clients" className="hover:text-[#028F1A] transition-colors">Clients</a>
-          <button
-            type="button"
+        {/* Center Navigation Links with Smooth Floating Pill Glider (No Dropdowns) */}
+        <NavItems items={navItems} />
+
+        {/* Right Section: Black Pill CTA Button with Origin Green Fill "Contact Us ↗" */}
+        <div className="relative z-20 hidden lg:flex items-center">
+          <OriginButton
             onClick={onOpenTalkModal}
-            className="hover:text-[#028F1A] transition-colors uppercase tracking-wider cursor-pointer"
+            fillClassName="bg-[#028F1A]"
+            className="group h-[46px] sm:h-[54px] px-6 sm:px-7 bg-black text-white rounded-full text-[14px] sm:text-lg font-medium tracking-normal shadow-xs hover:shadow-md border-0 transition-shadow duration-200"
           >
-            Contact
-          </button>
+            <span>Contact Us</span>
+            <svg
+              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.2}
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </OriginButton>
         </div>
+      </NavBody>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-gray-700 p-1 cursor-pointer"
-          aria-label="Toggle Menu"
+      {/* Mobile Navigation */}
+      <MobileNav>
+        <MobileNavHeader>
+          <Link href="/" className="flex items-center gap-2 px-2 py-1 text-black">
+            <span className="text-xl font-bold tracking-tight text-black font-sans">
+              CK Creatives
+            </span>
+          </Link>
+          <MobileNavToggle
+            isOpen={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#FAFAFA] border-b border-gray-200 px-6 py-6 mt-2 space-y-4 text-sm font-medium tracking-wider uppercase text-neutral-900">
-          <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#028F1A]">Home</Link>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#028F1A]">About Us</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#028F1A]">Services</a>
-          <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#028F1A]">Projects</a>
-          <a href="#clients" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#028F1A]">Clients</a>
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenTalkModal();
-            }}
-            className="block w-full text-left hover:text-[#028F1A] uppercase cursor-pointer pt-3 border-t border-gray-200"
-          >
-            Contact
-          </button>
-        </div>
-      )}
-    </header>
+          {navItems.map((item, idx) => (
+            <a
+              key={`mobile-link-${idx}`}
+              href={item.link}
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2 text-lg font-medium text-neutral-800 hover:text-[#028F1A] transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+          <div className="pt-2 w-full">
+            <OriginButton
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenTalkModal();
+              }}
+              fillClassName="bg-[#028F1A]"
+              className="w-full h-12 bg-black text-white rounded-full text-base font-medium shadow-xs border-0"
+            >
+              <span>Contact Us</span>
+              <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </OriginButton>
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
   );
 }
