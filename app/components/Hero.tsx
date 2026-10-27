@@ -76,7 +76,7 @@ export default function DeutscheHero({ onOpenTalkModal }: HeroProps) {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src="/hero.meta.webm" type="video/webm" />
+              <source src="https://res.cloudinary.com/drgpcbhjc/video/upload/v1778837604/CK_WEBSITE_VIDEO_wide_1_zm8yux.mp4" type="video/mp4" />
             </video>
 
             {/* Vibrant Circular Play/Pause Indicator (matching screenshots 1 & 2) */}
